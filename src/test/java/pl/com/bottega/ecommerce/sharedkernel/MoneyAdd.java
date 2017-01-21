@@ -11,23 +11,23 @@ import org.junit.Test;
 
 import pl.com.bottega.ecommerce.sharedkernel.Money;
 
-public class MoneyCurrencyWrongInstance {
+public class MoneyAdd {
+	String result;
+	Money cash;
 	
 	@Before
 	public void init(){
-		Currency cur = Money.DEFAULT_CURRENCY;
-		Money zero = Money.ZERO;
-		final BigDecimal denomination = new BigDecimal("1000.00001");
-		Money cash = new Money(denomination, cur);
 		
-		final String result = cash.toString();
-		
+		BigDecimal denomination = new BigDecimal("1000.00001");
+		cash = new Money(denomination);
+		cash.add(cash);
+		result = cash.toString();
 		
 		}
 	
 	@Test
 	
-	 public void exists(){
+	 public void addition(){
 		
 		assertThat(result, is(cash.toString()));
 	}
