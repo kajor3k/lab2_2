@@ -4,12 +4,11 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import java.math.BigDecimal;
-import java.util.Currency;
 
 import org.junit.Before;
 import org.junit.Test;
 
-public class MoneyGreaterThanMoney {
+public class MoneyLessThanMoney {
 	String result;
 	Money cash;
 	
@@ -21,7 +20,7 @@ public class MoneyGreaterThanMoney {
 		//Currency currency = Currency.getInstance("wrongCurrency");
 		cash.equals(denomination);
 		
-		cash.greaterThan((new Money(99,"EUR")));
+		cash.lessThan((new Money(99,"EUR")));
 		
 		result = cash.toString();
 		
@@ -34,7 +33,6 @@ public class MoneyGreaterThanMoney {
 		
 		
 		
-		assertThat(result.equals(cash.greaterThan((new Money(99,"EUR")))), is(true));
+		assertThat(result.equals(cash.lessThan((new Money(99,"EUR")))), is(false));
 	}
 }
-
